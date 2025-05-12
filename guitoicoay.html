@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Hôm nay em thế nào rồi?</title>
+  <style>
+    body {
+      background: #ffeef1;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+
+    .card {
+      background-color: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 90%;
+      max-width: 400px;
+      position: relative;
+    }
+
+    h1 {
+      color: #e91e63;
+      margin-bottom: 20px;
+    }
+
+    select {
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .message {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #555;
+      min-height: 50px;
+    }
+
+    .cat-meme {
+      width: 50%;
+      max-width: 200px;
+      border-radius: 15px;
+      width: 50%;
+      max-width: 300px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+     <img src="scared-cat-meme-template-full-400dbb6d.webp" class="cat-meme" alt="Meme mèo cute" >
+    <h1>Hôm nay em cảm thấy thế nào? 💖</h1>
+    <select id="feeling">
+      <option value="">-- Chọn cảm xúc của em --</option>
+      <option value="vui">Vui vẻ 😊</option>
+      <option value="buon">Hơi buồn 😢</option>
+      <option value="met">Mệt mỏi 😔</option>
+      <option value="yeuanh">Nhớ anh quá 🥺</option>
+    </select>
+    <br>
+    <button onclick="showMessage()">Gửi lời cho em</button>
+    <div class="message" id="messageBox"></div>
+  </div>
+
+  <script>
+    function showMessage() {
+      const feeling = document.getElementById("feeling").value;
+      const messageBox = document.getElementById("messageBox");
+
+      let message = "";
+
+      switch(feeling) {
+        case "vui":
+          message = "Anh vui cùng em nhé! Luôn giữ nụ cười đó nha 💕";
+          break;
+        case "buon":
+          message = "Anh ở đây để lắng nghe em. Đừng buồn nữa, có anh mà 🥺💖";
+          break;
+        case "met":
+          message = "Em nhớ nghỉ ngơi nhé. Anh thương em nhiều lắm 💤❤️";
+          break;
+        case "yeuanh":
+          message = "Anh cũng nhớ em quá trời luôn 😘 Mình sắp gặp nhau rồi nhaaa!";
+          break;
+        default:
+          message = "Em chọn cảm xúc đi đãaa 😘";
+      }
+
+      messageBox.innerText = message;
+    }
+
+    // Trái tim bay
+    const heartContainer = document.getElementById("hearts");
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerText = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = 3 + Math.random() * 2 + "s";
+      heartContainer.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 5000);
+    },400);
+    </script>
+    </body>
+    </html>
+
